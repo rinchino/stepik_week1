@@ -16,6 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from conf.views import MainView
+from example.views import DepartureView, TourView, StudentView
+from example.views import FirstView
+from example.views import SecondView
+from example.views import ThirdView
+
 urlpatterns = [
+    path('', MainView.as_view()),
+    path('departure/', DepartureView.as_view()),
+    path('tour/', TourView.as_view()),
+    path('students/<int:student_id>', StudentView.as_view()),
+    path('first/', FirstView.as_view()),
+    path('second/', SecondView.as_view()),
+    path('third/', ThirdView.as_view()),
     path('admin/', admin.site.urls),
 ]
